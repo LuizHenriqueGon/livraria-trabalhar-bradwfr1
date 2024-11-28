@@ -11,7 +11,7 @@ const Navbar = () => {
           <div className='catgrories d_flex'>
             <span class='fa-solid fa-border-all'></span>
             <h4>
-              Categories <i className='fa fa-chevron-down'></i>
+             Categorias <i className='fa fa-chevron-down'></i>
             </h4>
           </div>
 
@@ -22,19 +22,19 @@ const Navbar = () => {
                 <Link to='/'>home</Link>
               </li>
               <li>
-                <Link to='/pages'>pages</Link>
+                <Link to='/pages'>páginas</Link>
               </li>
               <li>
-                <Link to='/user'>user account</Link>
+                <Link to='/user'>conta de usuário</Link>
               </li>
               <li>
-                <Link to='/vendor'>vendor account</Link>
+                <Link to='/vendor'>conta de fornecedor</Link>
               </li>
               <li>
-                <Link to='/track'>track my order</Link>
+                <Link to='/track'>Rastrear Meu Pedido</Link>
               </li>
               <li>
-                <Link to='/contact'>contact</Link>
+                <Link to='/contact'>Contato</Link>
               </li>
             </ul>
 

@@ -1,13 +1,17 @@
-import React from "react"
+import React, { useEffect } from "react"
 import logo from "../../components/assets/images/logo.svg"
 import { Link } from "react-router-dom"
+import Login from "../Cadastro/Login/Login"
 
 const Search = ({ CartItem }) => {
-  // fixed Header
-  window.addEventListener("scroll", function () {
-    const search = document.querySelector(".search")
-    search.classList.toggle("active", window.scrollY > 100)
-  })
+  useEffect(() => {
+    const handleScroll = () => {
+      const search = document.querySelector(".search")
+      search.classList.toggle("active", window.scrollY > 100)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <>
@@ -19,8 +23,8 @@ const Search = ({ CartItem }) => {
 
           <div className='search-box f_flex'>
             <i className='fa fa-search'></i>
-            <input type='text' placeholder='Search and hit enter...' />
-            <span>All Category</span>
+            <input type='text' placeholder='Pesquise e pressione Enter...' />
+            <span>Todas as categorias</span>
           </div>
 
           <div className='icon f_flex width'>
