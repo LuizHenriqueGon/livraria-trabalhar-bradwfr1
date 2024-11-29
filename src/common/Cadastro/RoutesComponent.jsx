@@ -1,8 +1,8 @@
 // src/components/RoutesComponent.jsx
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Login from "./Login/Login";
+import { Routes, Route } from 'react-router-dom'
+import Login from "./login/Login";
 import EsqueciSenha from "./Esqueci_Senha/Esqueci_Senha";
 import Cadastro from "./Cadastro/Cadastro";
 
