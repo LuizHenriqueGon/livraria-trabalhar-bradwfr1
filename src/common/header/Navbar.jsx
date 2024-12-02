@@ -11,7 +11,7 @@ const Navbar = () => {
           <div className='catgrories d_flex'>
             <span class='fa-solid fa-border-all'></span>
             <h4>
-             Categorias 
+             Categorias <i className='fa fa-chevron-down'></i>
             </h4>
           </div>
 

@@ -7,7 +7,6 @@ import Data from "./components/Data"
 import Cart from "./common/Cart/Cart"
 import Footer from "./common/footer/Footer"
 import Sdata from "./components/shops/Sdata"
-import Login from "./common/Cadastro/login/Login";
 
 function App() {
   /*
@@ -79,16 +78,11 @@ function App() {
           <Route path='/cart' exact>
             <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
           </Route>
-          <Route path="/login" exact> 
-            <Login />
-          </Route>
-          
         </Switch>
-        
         <Footer />
       </Router>
     </>
   )
 }
 
-export default App;
+export default App
