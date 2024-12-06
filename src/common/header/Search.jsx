@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import logo from "../../components/assets/images/logo.svg"
 import { Link } from "react-router-dom"
-import Login from "../Cadastro/Login/Login"
+import Login from "../Cadastro/Login"
 
 const Search = ({ CartItem }) => {
   useEffect(() => {
@@ -24,7 +24,7 @@ const Search = ({ CartItem }) => {
           <div className='search-box f_flex'>
             <i className='fa fa-search'></i>
             <input type='text' placeholder='Pesquise e pressione Enter...' />
-            <span>Todas as categorias</span>
+            <span>Pesquisa</span>
           </div>
 
           <div className='icon f_flex width'>

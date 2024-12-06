@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
-import "./cadastro.css"; // Certifique-se de que o arquivo CSS esteja correto
-import img134 from './undraw_Sign_up_n6im.png' 
+import "./css/cadastro.css"; // Certifique-se de que o arquivo CSS esteja correto
+import img134 from './img/undraw_Sign_up_n6im.png' 
 
 const Cadastro = () => {
   const [formData, setFormData] = useState({

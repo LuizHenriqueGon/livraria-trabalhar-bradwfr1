@@ -173,3 +173,37 @@ header ul li a:hover {
     height: 10vh;
   }
 }
+.user-auth {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
+
+.user-auth div {
+  display: flex;
+  gap: 10px;
+}
+
+.user-auth button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.user-auth button:hover {
+  background-color: #0056b3;
+}
+
+.user-auth a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.user-auth a:hover {
+  text-decoration: underline;
+}
