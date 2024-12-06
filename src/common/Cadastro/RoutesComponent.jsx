@@ -2,9 +2,9 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Login from "./Login/Login";
-import EsqueciSenha from "./Esqueci_Senha/Esqueci_Senha";
-import Cadastro from "./Cadastro/Cadastro";
+import Login from "./Login";
+import EsqueciSenha from "./Esqueci_Senha";
+import Cadastro from "./Cadastro";
 
 const RoutesComponent = () => {
   return (

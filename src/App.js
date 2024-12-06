@@ -53,12 +53,8 @@ function App() {
           <Route path="/" exact>
             <Pages productItems={productItems} addToCart={addToCart} shopItems={shopItems} />
           </Route>
-          <Route path="/cart" exact>
-            {user ? (
-              <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
-            ) : (
-              <Redirect to="/login" />
-            )}
+          <Route path='/cart' exact>
+            <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
           </Route>
         </Switch>
         <Footer />

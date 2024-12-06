@@ -18,7 +18,7 @@ const Header = ({ CartItem, user, onLogout }) => {
             <button onClick={onLogout}>Sair</button>
           </div>
         ) : (
-          <Link to="/login">Login</Link>
+          <Link to="/login"></Link>
         )}
       </div>
     </>
