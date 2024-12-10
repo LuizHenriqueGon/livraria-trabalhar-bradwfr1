@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./css/login.css";
 
+
 const Login = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,17 +44,18 @@ const Login = ({ onLoginSuccess }) => {
         />
         <label htmlFor="password">Senha</label>
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           name="password"
           placeholder="Digite sua senha"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <button type="button" onClick={() => setShowPassword(!showPassword)}>Mostrar senha</button>
         {error && <p style={{ color: "red" }}>{error}</p>}
         <a href="/esqueci-senha">Esqueci minha senha</a>
         <p>
-          Ainda não tem uma conta? <a href="/cadastro">Crie uma.</a>
+        Ainda não tem uma conta? <a href="/cadastro">Crie uma.</a>
         </p>
         <input type="submit" value={loading ? "Carregando..." : "Acessar"} className="btn" disabled={loading} />
       </form>
@@ -61,4 +64,3 @@ const Login = ({ onLoginSuccess }) => {
 };
 
 export default Login;
-

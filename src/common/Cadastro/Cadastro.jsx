@@ -1,187 +1,103 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
-import "./css/cadastro.css"; // Certifique-se de que o arquivo CSS esteja correto
-import img134 from './img/undraw_Sign_up_n6im.png' 
+import React, { useState } from 'react';
+import './css/cadastro.css';
 
 const Cadastro = () => {
   const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-    password: "",
-    confirmPassword: "",
-    gender: "",
+    nome: '',
+    email: '',
+    senha: '',
+    confirmarSenha: '',
   });
+
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.nome.trim()) newErrors.nome = 'O nome é obrigatório.';
+    if (!formData.email.trim()) {
+      newErrors.email = 'O email é obrigatório.';
+    } else if (!/^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/.test(formData.email)) {
+      newErrors.email = 'O email não é válido.';
+    }
+    if (!formData.senha) {
+      newErrors.senha = 'A senha é obrigatória.';
+    } else if (formData.senha.length < 6) {
+      newErrors.senha = 'A senha deve ter pelo menos 6 caracteres.';
+    }
+    if (formData.confirmarSenha !== formData.senha) {
+      newErrors.confirmarSenha = 'As senhas não coincidem.';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Dados enviados:", formData);
-    // Lógica para envio dos dados
+
+    if (validateForm()) {
+      alert('Cadastro realizado com sucesso!');
+      console.log('Dados do formulário:', formData);
+      setFormData({ nome: '', email: '', senha: '', confirmarSenha: '' });
+    }
   };
 
   return (
-    <>
-        <div className="container">
-        <div className="form-image">
-            <img
-            src={img134}
-            alt="Ilustração de cadastro"
-            />
+    <div className="cadastro-container">
+      <h2>Cadastro</h2>
+      <form onSubmit={handleSubmit} className="cadastro-form">
+        <div className="form-group">
+          <label>Nome Completo:</label>
+          <input
+            type="text"
+            name="nome"
+            value={formData.nome}
+            onChange={handleChange}
+          />
+          {errors.nome && <p className="error">{errors.nome}</p>}
         </div>
-        <div className="form">
-            <form onSubmit={handleSubmit}>
-            <div className="form-header">
-                <div className="title">
-                <h1>Cadastre-se</h1>
-                </div>
-                <div className="login-button">
-                <button type="button">
-                    <a href="#">Entrar</a>
-                </button>
-                </div>
-            </div>
-            <div className="input-group">
-                <div className="input-box">
-                <label htmlFor="firstname">Primeiro Nome</label>
-                <input
-                    id="firstname"
-                    type="text"
-                    name="firstname"
-                    placeholder="Digite seu primeiro nome"
-                    value={formData.firstname}
-                    onChange={handleChange}
-                    required
-                />
-                </div>
-
-                <div className="input-box">
-                <label htmlFor="lastname">Sobrenome</label>
-                <input
-                    id="lastname"
-                    type="text"
-                    name="lastname"
-                    placeholder="Digite seu sobrenome"
-                    value={formData.lastname}
-                    onChange={handleChange}
-                    required
-                />
-                </div>
-
-                <div className="input-box">
-                <label htmlFor="email">Email</label>
-                <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    placeholder="Digite seu email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                />
-                </div>
-
-                <div className="input-box">
-                <label htmlFor="phone">Telefone</label>
-                <input
-                    id="phone"
-                    type="tel"
-                    name="phone"
-                    placeholder="(xx) xxxx-xxxx"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                />
-                </div>
-
-                <div className="input-box">
-                <label htmlFor="password">Senha</label>
-                <input
-                    id="password"
-                    type="password"
-                    name="password"
-                    placeholder="Digite sua senha"
-                    value={formData.password}
-                    onChange={handleChange}
-                    required
-                />
-                </div>
-
-                <div className="input-box">
-                <label htmlFor="confirmPassword">Confirme sua senha</label>
-                <input
-                    id="confirmPassword"
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Digite sua senha novamente"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    required
-                />
-                </div>
-            </div>
-            <div className="gender-inputs">
-                <div className="gender-title">
-                <h6>Gênero</h6>
-                </div>
-                <div className="gender-group">
-                <div className="gender-input">
-                    <input
-                    type="radio"
-                    id="female"
-                    name="gender"
-                    value="female"
-                    onChange={handleChange}
-                    required
-                    />
-                    <label htmlFor="female">Feminino</label>
-                </div>
-                <div className="gender-input">
-                    <input
-                    type="radio"
-                    id="male"
-                    name="gender"
-                    value="male"
-                    onChange={handleChange}
-                    />
-                    <label htmlFor="male">Masculino</label>
-                </div>
-                <div className="gender-input">
-                    <input
-                    type="radio"
-                    id="others"
-                    name="gender"
-                    value="others"
-                    onChange={handleChange}
-                    />
-                    <label htmlFor="others">Outros</label>
-                </div>
-                <div className="gender-input">
-                    <input
-                    type="radio"
-                    id="none"
-                    name="gender"
-                    value="none"
-                    onChange={handleChange}
-                    />
-                    <label htmlFor="none">Prefiro não dizer</label>
-                </div>
-                </div>
-            </div>
-            <div className="continue-button">
-                <button type="submit">Continuar</button>
-            </div>
-            </form>
+        <div className="form-group">
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          {errors.email && <p className="error">{errors.email}</p>}
         </div>
+        <div className="form-group">
+          <label>Senha:</label>
+          <input
+            type="password"
+            name="senha"
+            value={formData.senha}
+            onChange={handleChange}
+          />
+          {errors.senha && <p className="error">{errors.senha}</p>}
         </div>
-    </>
+        <div className="form-group">
+          <label>Confirmar Senha:</label>
+          <input
+            type="password"
+            name="confirmarSenha"
+            value={formData.confirmarSenha}
+            onChange={handleChange}
+          />
+          {errors.confirmarSenha && (
+            <p className="error">{errors.confirmarSenha}</p>
+          )}
+        </div>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
   );
 };
 
 export default Cadastro;
-

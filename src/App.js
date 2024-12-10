@@ -8,13 +8,14 @@ import Cart from "./common/Cart/Cart";
 import Footer from "./common/footer/Footer";
 import Sdata from "./components/shops/Sdata";
 import Login from "./common/Cadastro/Login"; // Importa o componente de login
+import Cadastro from "./common/Cadastro/Cadastro"; // Importa o componente de cadastro
 
 function App() {
   const { productItems } = Data;
   const { shopItems } = Sdata;
 
   const [CartItem, setCartItem] = useState([]);
-  const [user, setUser] = useState(null); // Estado para gerenciar autenticação
+  const [user, setUser ] = useState(null); // Estado para gerenciar autenticação
 
   const addToCart = (product) => {
     const productExit = CartItem.find((item) => item.id === product.id);
@@ -35,11 +36,11 @@ function App() {
   };
 
   const handleLogin = (userData) => {
-    setUser(userData); // Salva os dados do usuário ao fazer login
+    setUser (userData); // Salva os dados do usuário ao fazer login
   };
 
   const handleLogout = () => {
-    setUser(null); // Remove os dados do usuário ao fazer logout
+    setUser (null); // Remove os dados do usuário ao fazer logout
   };
 
   return (
@@ -49,6 +50,9 @@ function App() {
         <Switch>
           <Route path="/login" exact>
             {user ? <Redirect to="/" /> : <Login onLoginSuccess={handleLogin} />}
+          </Route>
+          <Route path="/cadastro" exact>
+            <Cadastro /> {/* Adiciona a rota para o componente Cadastro */}
           </Route>
           <Route path="/" exact>
             <Pages productItems={productItems} addToCart={addToCart} shopItems={shopItems} />
