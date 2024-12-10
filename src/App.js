@@ -9,6 +9,7 @@ import Footer from "./common/footer/Footer";
 import Sdata from "./components/shops/Sdata";
 import Login from "./common/Cadastro/Login"; // Importa o componente de login
 import Cadastro from "./common/Cadastro/Cadastro"; // Importa o componente de cadastro
+import EsqueciSenha from "./common/Cadastro/Esqueci_Senha";
 
 function App() {
   const { productItems } = Data;
@@ -53,6 +54,9 @@ function App() {
           </Route>
           <Route path="/cadastro" exact>
             <Cadastro /> {/* Adiciona a rota para o componente Cadastro */}
+          </Route>
+          <Route path="/esquecisenha" exact>
+            <EsqueciSenha/> {/* Adiciona a rota para o componente Cadastro */}
           </Route>
           <Route path="/" exact>
             <Pages productItems={productItems} addToCart={addToCart} shopItems={shopItems} />

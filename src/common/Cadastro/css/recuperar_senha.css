@@ -6,26 +6,6 @@
     font-family: Arial, sans-serif;
 }
 
-/* Estilização da página */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f3f4f6;
-}
-
-/* Container da página de formulário */
-.page {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
-}
-
 /* Título do formulário */
 .formRecuperarSenha h1 {
     font-size: 24px;
@@ -73,6 +53,12 @@ body {
 
 .formRecuperarSenha .btn:hover {
     background-color: #45a049;
+}
+
+/* Mensagem de feedback */
+.message {
+    margin-top: 15px;
+    color: #4CAF50;
 }
 
 /* Link para voltar ao login */

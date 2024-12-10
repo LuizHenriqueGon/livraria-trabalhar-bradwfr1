@@ -53,7 +53,7 @@ const Login = ({ onLoginSuccess }) => {
         />
         <button type="button" onClick={() => setShowPassword(!showPassword)}>Mostrar senha</button>
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <a href="/esqueci-senha">Esqueci minha senha</a>
+        <a href="/esquecisenha">Esqueci minha senha</a>
         <p>
         Ainda não tem uma conta? <a href="/cadastro">Crie uma.</a>
         </p>
